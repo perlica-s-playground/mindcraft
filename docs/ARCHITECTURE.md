@@ -314,6 +314,14 @@ flowchart TD
     CHAT_RESP --> DONE
     END_LOOP --> DONE
     STOP_LOOP --> DONE
+
+    click CONVO_MGR "https://github.com/perlica-s-playground/mindcraft/blob/main/src/agent/conversation.js"
+    click HANDLE_MSG "https://github.com/perlica-s-playground/mindcraft/blob/main/src/agent/agent.js"
+    click ADD_HISTORY "https://github.com/perlica-s-playground/mindcraft/blob/main/src/agent/history.js"
+    click LLM_CALL "https://github.com/perlica-s-playground/mindcraft/blob/main/src/models/prompter.js"
+    click EXEC_CMD "https://github.com/perlica-s-playground/mindcraft/blob/main/src/agent/commands/index.js"
+    click EXEC_CMD2 "https://github.com/perlica-s-playground/mindcraft/blob/main/src/agent/commands/index.js"
+    click TRANSLATE "https://github.com/perlica-s-playground/mindcraft/blob/main/src/utils/translator.js"
 ```
 
 ---
@@ -360,6 +368,16 @@ flowchart TD
     M2_ACT --> BREAK
     M3_ACT --> BREAK
     M4_ACT --> BREAK
+
+    click MODES_UPDATE "https://github.com/perlica-s-playground/mindcraft/blob/main/src/agent/modes.js"
+    click M1 "https://github.com/perlica-s-playground/mindcraft/blob/main/src/agent/modes.js"
+    click M2 "https://github.com/perlica-s-playground/mindcraft/blob/main/src/agent/modes.js"
+    click M3 "https://github.com/perlica-s-playground/mindcraft/blob/main/src/agent/modes.js"
+    click M4 "https://github.com/perlica-s-playground/mindcraft/blob/main/src/agent/modes.js"
+    click M1_ACT "https://github.com/perlica-s-playground/mindcraft/blob/main/src/agent/library/skills.js"
+    click M2_ACT "https://github.com/perlica-s-playground/mindcraft/blob/main/src/agent/library/skills.js"
+    click M3_ACT "https://github.com/perlica-s-playground/mindcraft/blob/main/src/agent/library/skills.js"
+    click M4_ACT "https://github.com/perlica-s-playground/mindcraft/blob/main/src/agent/library/skills.js"
 ```
 
 ---
