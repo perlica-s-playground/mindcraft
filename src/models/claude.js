@@ -12,13 +12,7 @@ export class Claude {
         if (url)
             config.baseURL = url;
         
-        const key = getKey('ANTHROPIC_API_KEY');
-        if (key && key.startsWith('sk-ant-oat')) {
-            // OAuth token (e.g. from Claude Code setup-token) uses Bearer auth
-            config.authToken = key;
-        } else {
-            config.apiKey = key;
-        }
+        config.apiKey = getKey('ANTHROPIC_API_KEY');
 
         this.anthropic = new Anthropic(config);
     }
