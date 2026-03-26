@@ -98,6 +98,32 @@ graph TB
     NPC --> WORLD
     SKILLS --> MCDATA
     WORLD --> MCDATA
+
+    click MAIN "https://github.com/perlica-s-playground/mindcraft/blob/main/main.js"
+    click SETTINGS "https://github.com/perlica-s-playground/mindcraft/blob/main/settings.js"
+    click MC "https://github.com/perlica-s-playground/mindcraft/blob/main/src/mindcraft/mindcraft.js"
+    click MS "https://github.com/perlica-s-playground/mindcraft/blob/main/src/mindcraft/mindserver.js"
+    click MCS "https://github.com/perlica-s-playground/mindcraft/blob/main/src/mindcraft/mcserver.js"
+    click AP "https://github.com/perlica-s-playground/mindcraft/blob/main/src/process/agent_process.js"
+    click IA "https://github.com/perlica-s-playground/mindcraft/blob/main/src/process/init_agent.js"
+    click MSP "https://github.com/perlica-s-playground/mindcraft/blob/main/src/agent/mindserver_proxy.js"
+    click AGENT "https://github.com/perlica-s-playground/mindcraft/blob/main/src/agent/agent.js"
+    click PROMPTER "https://github.com/perlica-s-playground/mindcraft/blob/main/src/models/prompter.js"
+    click HISTORY "https://github.com/perlica-s-playground/mindcraft/blob/main/src/agent/history.js"
+    click CODER "https://github.com/perlica-s-playground/mindcraft/blob/main/src/agent/coder.js"
+    click AM "https://github.com/perlica-s-playground/mindcraft/blob/main/src/agent/action_manager.js"
+    click SP "https://github.com/perlica-s-playground/mindcraft/blob/main/src/agent/self_prompter.js"
+    click CONV "https://github.com/perlica-s-playground/mindcraft/blob/main/src/agent/conversation.js"
+    click NPC "https://github.com/perlica-s-playground/mindcraft/blob/main/src/agent/npc/controller.js"
+    click MODES "https://github.com/perlica-s-playground/mindcraft/blob/main/src/agent/modes.js"
+    click MB "https://github.com/perlica-s-playground/mindcraft/blob/main/src/agent/memory_bank.js"
+    click GPT "https://github.com/perlica-s-playground/mindcraft/blob/main/src/models/gpt.js"
+    click CLAUDE "https://github.com/perlica-s-playground/mindcraft/blob/main/src/models/claude.js"
+    click GEMINI "https://github.com/perlica-s-playground/mindcraft/blob/main/src/models/gemini.js"
+    click OLLAMA "https://github.com/perlica-s-playground/mindcraft/blob/main/src/models/ollama.js"
+    click SKILLS "https://github.com/perlica-s-playground/mindcraft/blob/main/src/agent/library/skills.js"
+    click WORLD "https://github.com/perlica-s-playground/mindcraft/blob/main/src/agent/library/world.js"
+    click MCDATA "https://github.com/perlica-s-playground/mindcraft/blob/main/src/utils/mcdata.js"
 ```
 
 ---
@@ -160,6 +186,14 @@ sequenceDiagram
 
     AGENT ->> MS: sendOutputToServer()
     MS ->> UI: bot-output 이벤트
+
+    link AGENT: 소스코드 @ https://github.com/perlica-s-playground/mindcraft/blob/main/src/agent/agent.js
+    link CONV: 소스코드 @ https://github.com/perlica-s-playground/mindcraft/blob/main/src/agent/conversation.js
+    link HIST: 소스코드 @ https://github.com/perlica-s-playground/mindcraft/blob/main/src/agent/history.js
+    link PROMPTER: 소스코드 @ https://github.com/perlica-s-playground/mindcraft/blob/main/src/models/prompter.js
+    link AM: 소스코드 @ https://github.com/perlica-s-playground/mindcraft/blob/main/src/agent/action_manager.js
+    link SKILLS: 소스코드 @ https://github.com/perlica-s-playground/mindcraft/blob/main/src/agent/library/skills.js
+    link MS: 소스코드 @ https://github.com/perlica-s-playground/mindcraft/blob/main/src/mindcraft/mindserver.js
 ```
 
 ---
@@ -356,4 +390,8 @@ graph LR
 
     MS -->|"chat-message 중계"| P1
     MS -->|"chat-message 중계"| P2
+
+    click MS "https://github.com/perlica-s-playground/mindcraft/blob/main/src/mindcraft/mindserver.js"
+    click P1 "https://github.com/perlica-s-playground/mindcraft/blob/main/src/agent/mindserver_proxy.js"
+    click P2 "https://github.com/perlica-s-playground/mindcraft/blob/main/src/agent/mindserver_proxy.js"
 ```

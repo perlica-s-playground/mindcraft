@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Mindcraft 문서</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="description" content="Mindcraft 코드베이스 문서">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <!-- Dark theme -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple-dark.css">
+  <style>
+    :root {
+      --base-font-size: 15px;
+      --theme-color: #42b983;
+    }
+    /* Make mermaid clickable nodes show pointer cursor */
+    .mermaid .node { cursor: pointer; }
+    .mermaid .node a { color: inherit !important; text-decoration: none !important; }
+    .mermaid .clickable { cursor: pointer; }
+  </style>
+</head>
+<body>
+  <div id="app"></div>
+  <script>
+    window.$docsify = {
+      name: 'Mindcraft 문서',
+      repo: 'https://github.com/perlica-s-playground/mindcraft',
+      loadSidebar: true,
+      subMaxLevel: 3,
+      search: {
+        placeholder: '검색...',
+        noData: '결과 없음',
+        depth: 6
+      },
+      auto2top: true,
+      // Mermaid config
+      markdown: {
+        renderer: {
+          code: function(code, lang) {
+            if (lang === 'mermaid') {
+              return '<div class="mermaid">' + code + '</div>';
+            }
+            return this.origin.code.apply(this, arguments);
+          }
+        }
+      }
+    };
+  </script>
+  <!-- Docsify -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/docsify.min.js"></script>
+  <!-- Search plugin -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/plugins/search.min.js"></script>
+  <!-- Mermaid -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+  <script>
+    // Initialize mermaid with click support
+    mermaid.initialize({
+      startOnLoad: false,
+      theme: 'dark',
+      securityLevel: 'loose',  // Required for click directives to work
+      flowchart: { useMaxWidth: true, htmlLabels: true },
+      sequence: { useMaxWidth: true }
+    });
+
+    // Re-render mermaid after Docsify route changes
+    function renderMermaid() {
+      const elements = document.querySelectorAll('.mermaid');
+      elements.forEach(function(el, index) {
+        // Skip already rendered
+        if (el.getAttribute('data-processed')) return;
+        try {
+          const id = 'mermaid-' + Date.now() + '-' + index;
+          mermaid.render(id, el.textContent).then(function(result) {
+            el.innerHTML = result.svg;
+            el.setAttribute('data-processed', 'true');
+            // Bind click handlers from mermaid
+            if (result.bindFunctions) {
+              result.bindFunctions(el);
+            }
+          });
+        } catch(e) {
+          console.error('Mermaid render error:', e);
+        }
+      });
+    }
+
+    // Hook into Docsify lifecycle
+    window.$docsify.plugins = (window.$docsify.plugins || []).concat(function(hook) {
+      hook.doneEach(function() {
+        renderMermaid();
+      });
+    });
+  </script>
+</body>
+</html>

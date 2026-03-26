@@ -153,6 +153,8 @@ graph LR
     P --> CODE[code_model<br/>코드 생성<br/>미지정 시 chat_model]
     P --> VM[vision_model<br/>이미지 분석<br/>미지정 시 chat_model]
     P --> EM[embedding_model<br/>유사도 검색<br/>미지정 시 chat_model API]
+
+    click P "https://github.com/perlica-s-playground/mindcraft/blob/main/src/models/prompter.js"
 ```
 
 - **프로필 키**: `model`, `code_model`, `vision_model`, `embedding`
